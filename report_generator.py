@@ -18,7 +18,7 @@ def generate_audit_report(system_name: str, audit_result: dict, save_dir: str ="
         for risk in audit_result.get("risk_areas", []):
             f.write(f"- {risk}\n")
         
-        f.write("\n## Overall Risk Level:\n")
+        f.write("Risk Level:")
         f.write(f"**{audit_result.get('risk_level', 'Unknown')}**\n")
         
         f.write("\n## Suggested Remediation Actions:\n")
@@ -35,4 +35,5 @@ if __name__ == "__main__":
         "suggested_actions": ["Collect minimal fields", "Provide clear user consent form"]
     }
     path = generate_audit_report("Employee Chatbot", dummy_result)
+
     print(f"Report generated at: {path}")
